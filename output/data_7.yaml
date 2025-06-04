@@ -1,0 +1,11 @@
+id: 97
+name: Alpha
+tags:
+    - green
+    - yellow
+    - green
+attributes:
+    green: 66
+active: false
+score: 46.01316650088469
+timestamp: 2025-06-04T16:34:02.9765125+03:00

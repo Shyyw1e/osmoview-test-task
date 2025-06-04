@@ -1,0 +1,12 @@
+id: 88
+name: Epsilon
+tags:
+    - green
+    - red
+    - black
+attributes:
+    white: 65
+    yellow: 47
+active: true
+score: 94.83249185389462
+timestamp: 2025-06-04T16:34:02.9742684+03:00

@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"log/slog"
 	"net/http"
-	"time"
 	
 	"github.com/Shyyw1e/osmoview-test-task/internal/app"	
 )
@@ -32,19 +31,22 @@ func (s *Server) StartHandler(w http.ResponseWriter, r *http.Request) {
 	var req startRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		s.logger.Error("Failed to parse request", slog.String("error", err.Error()))
+		http.Error(w, "invalid request", http.StatusBadRequest)
 		return
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second * 30)
-	defer cancel()
+	ctx := context.Background()
 
-	go s.runner.Run(ctx, app.Config{
-		Iterations: req.Iterations,
-		Threads: req.Threads,
-		FileCount: req.Files,
-	})
+	go func() {
+		s.runner.Run(ctx, app.Config{
+			Iterations: req.Iterations,
+			Threads:    req.Threads,
+			FileCount:  req.Files,
+		})
+	}()
 
 	w.WriteHeader(http.StatusAccepted)
 	w.Write([]byte("started"))
 }
+
 

@@ -1,0 +1,12 @@
+id: 98
+name: Gamma
+tags:
+    - blue
+    - green
+attributes:
+    green: 78
+    red: 72
+    white: 26
+active: false
+score: 75.93068979558446
+timestamp: 2025-06-04T16:34:02.9765125+03:00
