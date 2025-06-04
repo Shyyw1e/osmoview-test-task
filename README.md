@@ -21,7 +21,7 @@
 .
 ├── cmd/server             # Точка входа (main.go)
 ├── internal
-│   ├── adapter
+│   ├── adapters
 │   │   ├── filewriter     # YAML-запись с мьютексами
 │   │   └── logger         # Цветной slog-логгер
 │   ├── app                # Usecase: запуск воркеров и логика генерации
